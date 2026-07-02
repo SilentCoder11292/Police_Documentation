@@ -53,7 +53,11 @@ app.use('/api/system', statsRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'UP', message: 'Bihar Police Digital Record Room API is healthy.' });
+  res.status(200).json({ 
+    status: 'Active', 
+    environment: process.env.NODE_ENV, 
+    timestamp: new Date().toISOString() 
+  });
 });
 
 // 5. Global Error Handling Middleware
