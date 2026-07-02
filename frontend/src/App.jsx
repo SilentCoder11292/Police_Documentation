@@ -1,5 +1,6 @@
 import React from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
@@ -9,13 +10,13 @@ function AppContent() {
   // Show premium loading spinner when checking for active local storage sessions
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-950 text-white font-sans">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 text-slate-800 dark:bg-gov-950 dark:text-white font-sans transition-colors duration-200">
         <div className="flex flex-col items-center justify-center space-y-4">
-          {/* Saffron spinner element */}
+          {/* Bihar Gold spinner element */}
           <div className="h-10 w-10 border-2 border-gold-500/20 border-t-gold-500 rounded-full animate-spin"></div>
           <div className="text-center space-y-1.5">
-            <h2 className="text-[10px] tracking-[0.25em] uppercase font-bold text-gold-500">Bihar Police Portal Node</h2>
-            <p className="text-[11px] text-slate-500 font-mono">Establishing TLS Verification Gateway...</p>
+            <h2 className="text-xs tracking-[0.25em] uppercase font-bold text-gold-500">Bihar Police Portal Node</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">Establishing TLS Verification Gateway...</p>
           </div>
         </div>
       </div>
@@ -28,8 +29,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

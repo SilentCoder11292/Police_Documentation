@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,28 +8,41 @@ export default {
   theme: {
     extend: {
       colors: {
+        police: {
+          50: '#f5f3ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8', // Indigo-400 (luminous accent for dark mode)
+          500: '#6366f1',
+          600: '#4f46e5', // Indigo-600 (corporate anchor for light mode)
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
+        },
         gov: {
-          950: '#071126', // Bihar Police Deepest Slate
-          900: '#0F1E36', // Primary Deep Navy
-          800: '#1B2E4B', // Secondary Slate
-          700: '#2C4468', // Steel Gray
-          600: '#3F5B85', // Mid Blue
-          500: '#5675A1', // Light Steel
-          400: '#7E9BBF', // Soft Ice Blue
-          100: '#E6EFFB', // Soft bg blue
-          50: '#F2F7FD',  // Very soft border blue
+          950: '#0b0f19', // Dark mode body obsidian
+          900: '#151c2c', // Dark mode card background
+          800: '#1e293b', 
+          700: '#334155',
+          600: '#475569',
+          550: '#64748b',
+          400: '#94a3b8',
+          100: '#f1f5f9', 
+          50: '#f8fafc',
         },
         gold: {
-          700: '#8A620D', // Brass Border
-          600: '#B0821A', // Saffron Gold
-          500: '#D4A32D', // Bihar Crest Gold
-          400: '#E9C262', // Highlight Gold
-          100: '#FEF9E6', // Warm Gold Tint
+          100: '#e0e7ff',
+          400: '#a5b4fc',
+          500: '#818cf8', // Luminous indigo-400 fallback
+          600: '#6366f1', // Indigo-500
+          700: '#4f46e5', // Indigo-600
         }
       },
       fontFamily: {
-        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+        sans: ['"Geist"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Cinzel"', 'serif'],
       }
     },
   },

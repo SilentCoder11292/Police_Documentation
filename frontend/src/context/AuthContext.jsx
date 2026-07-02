@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE } from '../config';
 
 const AuthContext = createContext(null);
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = `${API_BASE}/api`;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
