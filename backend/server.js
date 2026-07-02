@@ -37,7 +37,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/police_drrp';
 mongoose.connect(MONGO_URI)
   .then(() => {
-    console.log('MongoDB Connected Successfully to:', mongoose.connection.name);
+    console.log('Connected to MongoDB. Database Name:', mongoose.connection.name);
   })
   .catch((err) => {
     console.error('Database connection failed. Ensure MongoDB is running.', err.message);

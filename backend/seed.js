@@ -8,7 +8,8 @@ const seedUsers = async () => {
   try {
     console.log('Connecting to database for seeding...');
     await mongoose.connect(MONGO_URI);
-    console.log('Connected to MongoDB. Starting database seeding...');
+    console.log('Connected to MongoDB. Database Name:', mongoose.connection.name);
+    console.log('Starting database seeding...');
 
     // Delete existing users to ensure clean slate
     await User.deleteMany({});
