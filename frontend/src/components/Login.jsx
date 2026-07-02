@@ -139,7 +139,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-200 px-4 sm:px-6 lg:px-8 relative transition-colors duration-200">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-black text-black dark:text-white px-4 sm:px-6 lg:px-8 relative transition-colors duration-200">
       
       {/* Theme Toggler Segmented Control */}
       <div className="absolute top-6 right-6 z-20">
@@ -150,52 +150,50 @@ export default function Login() {
         
         {/* Header Branding */}
         <div className="flex flex-col items-center justify-center text-center">
-          <div className="w-16 h-16 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm mb-4 transition-colors">
-            <Shield className="w-9 h-9 text-police-600 dark:text-police-400" />
+          <div className="w-16 h-16 rounded-lg bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex items-center justify-center shadow-sm mb-4 transition-colors">
+            <Shield className="w-9 h-9 text-black dark:text-white" />
           </div>
           
-          <h2 className="text-xs uppercase tracking-[0.25em] font-extrabold text-police-600 dark:text-police-400 mb-1.5 font-sans">
+          <h2 className="text-xs uppercase tracking-[0.25em] font-extrabold text-gray-600 dark:text-gray-400 mb-1.5 font-sans">
             Government of Bihar
           </h2>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white font-display">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white font-display">
             Digital Record Room
           </h1>
-          <p className="mt-2 text-sm text-gray-700 dark:text-gray-305 font-medium">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 font-medium">
             State Police Headquarters &bull; Secure Access Node
           </p>
         </div>
 
         {/* Security Warning Banner */}
-        <div className="bg-red-55 dark:bg-red-950 border-l-4 border-red-500 p-4 rounded-r-2xl flex items-start gap-3 shadow-sm transition-colors">
-          <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-          <p className="text-xs text-red-900 dark:text-red-200 leading-relaxed font-mono">
+        <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 p-4 rounded-lg flex items-start gap-3 transition-colors">
+          <AlertTriangle className="w-5 h-5 text-black dark:text-white shrink-0 mt-0.5" />
+          <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-mono">
             <strong>WARNING:</strong> AUTHORIZED ACCESS ONLY. Unauthorized access attempts are monitored, logged, and subject to prosecution under Sec 66 of IT Act.
           </p>
         </div>
 
         {/* Auth Forms Box */}
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 sm:p-8 relative overflow-hidden transition-all duration-200">
+        <div className="bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-lg p-6 sm:p-8 relative overflow-hidden transition-all duration-200">
           
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-police-600 via-police-500 to-police-600 dark:from-police-500 dark:via-police-400 dark:to-police-500"></div>
-
           {/* Step 1: Username & Password */}
           {step === 1 && (
             <form onSubmit={handleCredentialsSubmit} className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white font-serif">Administrator Log In</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">Please authenticate with your gateway credentials.</p>
+                <h3 className="text-lg font-bold text-black dark:text-white font-serif">Administrator Log In</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Please authenticate with your gateway credentials.</p>
               </div>
 
               {/* Status Notifications */}
               {error && (
-                <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-3.5 rounded-xl text-sm flex items-center gap-2">
+                <div className="bg-white dark:bg-black border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-3.5 rounded-lg text-sm flex items-center gap-2">
                   <AlertTriangle className="w-4.5 h-4.5 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
               {success && (
-                <div className="bg-emerald-50 dark:bg-emerald-950 border border-emerald-250 dark:border-emerald-900 text-emerald-800 dark:text-emerald-400 p-3.5 rounded-xl text-sm flex items-center gap-2">
+                <div className="bg-white dark:bg-black border border-green-200 dark:border-green-900 text-green-705 dark:text-green-400 p-3.5 rounded-lg text-sm flex items-center gap-2">
                   <CheckCircle className="w-4.5 h-4.5 shrink-0" />
                   <span>{success}</span>
                 </div>
@@ -203,11 +201,11 @@ export default function Login() {
 
               <div className="space-y-5">
                 <div>
-                  <label htmlFor="username" className="block text-xs font-extrabold text-gray-750 dark:text-gray-300 uppercase tracking-wider mb-2">
+                  <label htmlFor="username" className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">
                     System Username
                   </label>
                   <div className="relative">
-                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-500 dark:text-gray-405">
+                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-500">
                       <User className="w-4.5 h-4.5" />
                     </span>
                     <input
@@ -217,7 +215,7 @@ export default function Login() {
                       required
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
-                      className="block w-full pl-11 pr-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-750 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl text-base text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none transition-all font-mono"
+                      className="block w-full pl-11 pr-4 py-2.5 bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg text-sm text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none transition-all font-mono"
                       placeholder="e.g., bihar_sp_09"
                       disabled={loading || success}
                     />
@@ -225,11 +223,11 @@ export default function Login() {
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block text-xs font-extrabold text-gray-750 dark:text-gray-300 uppercase tracking-wider mb-2">
+                  <label htmlFor="password" className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">
                     Security Password
                   </label>
                   <div className="relative">
-                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-500 dark:text-gray-405">
+                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-500">
                       <Lock className="w-4.5 h-4.5" />
                     </span>
                     <input
@@ -239,7 +237,7 @@ export default function Login() {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="block w-full pl-11 pr-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-750 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl text-base text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none transition-all"
+                      className="block w-full pl-11 pr-4 py-2.5 bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg text-sm text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none transition-all"
                       placeholder="••••••••"
                       disabled={loading || success}
                     />
@@ -250,10 +248,10 @@ export default function Login() {
               <button
                 type="submit"
                 disabled={loading || success}
-                className="w-full mt-2 bg-gradient-to-r from-police-700 to-police-600 dark:from-police-500 dark:to-police-400 hover:from-police-600 hover:to-police-500 dark:hover:from-police-400 dark:hover:to-police-300 text-white dark:text-slate-950 font-bold text-base py-3.5 px-4 rounded-xl shadow-sm active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:pointer-events-none"
+                className="w-full mt-2 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-bold text-sm py-3 px-4 rounded-lg shadow-sm active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:pointer-events-none"
               >
                 {loading ? 'Validating Credentials...' : 'Verify Identity'}
-                {!loading && <ArrowRight className="w-5 h-5" />}
+                {!loading && <ArrowRight className="w-4 h-4" />}
               </button>
             </form>
           )}
@@ -262,25 +260,25 @@ export default function Login() {
           {step === 2 && (
             <form onSubmit={handleOtpSubmit} className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 font-serif">
-                  <KeyRound className="w-5 h-5 text-police-600 dark:text-police-400" />
+                <h3 className="text-lg font-bold text-black dark:text-white flex items-center gap-2 font-serif">
+                  <KeyRound className="w-5 h-5 text-black dark:text-white" />
                   Secondary Verification Gate
                 </h3>
-                <p className="text-sm text-gray-750 dark:text-gray-300 mt-1 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 leading-relaxed">
                   A 6-digit verification code has been sent to your registered mobile number.
                 </p>
               </div>
 
               {/* Status Notifications */}
               {error && (
-                <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-3.5 rounded-xl text-sm flex items-center gap-2">
+                <div className="bg-white dark:bg-black border border-red-200 dark:border-red-900 text-red-705 dark:text-red-400 p-3.5 rounded-lg text-sm flex items-center gap-2">
                   <AlertTriangle className="w-4.5 h-4.5 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
               {success && (
-                <div className="bg-emerald-50 dark:bg-emerald-950 border border-emerald-250 dark:border-emerald-900 text-emerald-800 dark:text-emerald-400 p-3.5 rounded-xl text-sm flex items-center gap-2">
+                <div className="bg-white dark:bg-black border border-green-200 dark:border-green-900 text-green-705 dark:text-green-400 p-3.5 rounded-lg text-sm flex items-center gap-2">
                   <CheckCircle className="w-4.5 h-4.5 shrink-0" />
                   <span>{success}</span>
                 </div>
@@ -288,7 +286,7 @@ export default function Login() {
 
               {/* Separated 6-Digit input boxes */}
               <div>
-                <label className="block text-xs font-extrabold text-gray-750 dark:text-gray-300 uppercase tracking-wider mb-4 text-center">
+                <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4 text-center">
                   6-Digit OTP Code
                 </label>
                 <div className="flex justify-between items-center gap-3 max-w-xs mx-auto">
@@ -302,7 +300,7 @@ export default function Login() {
                       onChange={(e) => handleOtpChange(index, e.target.value)}
                       onKeyDown={(e) => handleOtpKeyDown(index, e)}
                       onPaste={index === 0 ? handleOtpPaste : undefined}
-                      className="w-11 h-14 text-center bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl text-xl text-gray-900 dark:text-white font-mono font-bold focus:outline-none transition-all"
+                      className="w-11 h-14 text-center bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg text-xl text-black dark:text-white font-mono font-bold focus:outline-none transition-all"
                       disabled={loading || success}
                     />
                   ))}
@@ -313,7 +311,7 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={loading || success}
-                  className="w-full bg-gradient-to-r from-police-700 to-police-600 dark:from-police-500 dark:to-police-400 hover:from-police-600 hover:to-police-500 dark:hover:from-police-400 dark:hover:to-police-300 text-white dark:text-slate-955 font-bold text-base py-3.5 px-4 rounded-xl shadow-sm active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:pointer-events-none"
+                  className="w-full bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-bold text-sm py-3 px-4 rounded-lg shadow-sm active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {loading ? 'Authorizing Access...' : 'Verify Code & Access Portal'}
                 </button>
@@ -322,7 +320,7 @@ export default function Login() {
                   type="button"
                   onClick={handleBackToLogin}
                   disabled={loading || success}
-                  className="w-full text-center text-sm font-semibold text-gray-750 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="w-full text-center text-sm font-semibold text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                 >
                   Return to Primary Login
                 </button>
@@ -333,7 +331,7 @@ export default function Login() {
         </div>
 
         {/* Footer Disclaimer */}
-        <div className="text-center text-xs text-gray-750 dark:text-gray-300 leading-relaxed max-w-sm mx-auto">
+        <div className="text-center text-xs text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mx-auto">
           &copy; 2026 Department of Home Affairs, State Govt.
           <br />
           System Node: Bihar State Police Digitization Project.

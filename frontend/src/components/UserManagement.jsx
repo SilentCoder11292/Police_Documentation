@@ -152,13 +152,13 @@ export default function UserManagement() {
       {/* Top Banner Heading */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight font-serif">System User Directory</h1>
-          <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">Manage personnel, release authorization logs, and toggle access nodes.</p>
+          <h1 className="text-2xl font-bold text-black dark:text-white tracking-tight font-serif">System User Directory</h1>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Manage personnel, release authorization logs, and toggle access nodes.</p>
         </div>
         
         <button
           onClick={() => { resetModalForm(); setIsModalOpen(true); }}
-          className="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 dark:text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center gap-1.5 active:scale-[0.98]"
+          className="px-4 py-2 bg-black text-white hover:bg-gray-850 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold text-sm rounded-lg transition-all active:scale-[0.99]"
         >
           <UserPlus className="w-4 h-4" />
           <span>Register Officer</span>
@@ -167,7 +167,7 @@ export default function UserManagement() {
 
       {/* Global Status Alerts */}
       {error && (
-        <div className="bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-400 border border-red-200 dark:border-red-900 p-4 rounded-2xl text-sm flex items-start gap-3 shadow-sm">
+        <div className="bg-white dark:bg-[#0a0a0a] border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-4 rounded-lg text-sm flex items-start gap-3">
           <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
           <div>
             <strong className="block font-semibold">Security Alert:</strong>
@@ -177,7 +177,7 @@ export default function UserManagement() {
       )}
 
       {success && (
-        <div className="bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400 border border-green-200 dark:border-green-800 p-4 rounded-2xl text-sm flex items-start gap-3 shadow-sm">
+        <div className="bg-white dark:bg-[#0a0a0a] border border-green-200 dark:border-green-800 text-green-700 dark:text-green-405 p-4 rounded-lg text-sm flex items-start gap-3">
           <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
           <div>
             <strong className="block font-semibold">Verification Update:</strong>
@@ -187,28 +187,28 @@ export default function UserManagement() {
       )}
 
       {/* Operators list grid box */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden shadow-sm transition-colors">
+      <div className="bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden transition-colors">
         
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex items-center gap-2">
-          <Users className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-          <h3 className="text-xs uppercase tracking-wider font-extrabold text-gray-900 dark:text-white">Active System Registries</h3>
-          <span className="ml-auto text-xs text-gray-700 dark:text-gray-300 font-mono">Total Nodes: {users.length}</span>
+        <div className="p-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111] flex items-center gap-2">
+          <Users className="w-4 h-4 text-black dark:text-white" />
+          <h3 className="text-xs uppercase tracking-wider font-extrabold text-black dark:text-white">Active System Registries</h3>
+          <span className="ml-auto text-xs text-gray-600 dark:text-gray-400 font-mono">Total Nodes: {users.length}</span>
         </div>
 
         {loading ? (
           <div className="p-12 text-center space-y-3">
-            <Loader2 className="w-8 h-8 animate-spin text-blue-600 dark:text-blue-400 mx-auto" />
-            <p className="text-sm text-gray-750 dark:text-gray-300 font-mono">Aggregating database personnel keys...</p>
+            <Loader2 className="w-8 h-8 animate-spin text-black dark:text-white mx-auto" />
+            <p className="text-sm text-gray-600 dark:text-gray-400 font-mono">Aggregating database personnel keys...</p>
           </div>
         ) : users.length === 0 ? (
-          <div className="p-8 text-center text-gray-700 dark:text-gray-300 font-mono text-sm">
+          <div className="p-8 text-center text-gray-600 dark:text-gray-400 font-mono text-sm">
             No authorized officer nodes logged in system directory.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left">
               <thead>
-                <tr className="bg-gray-100 dark:bg-gray-950 border-b border-gray-200 dark:border-gray-700 text-xs text-gray-700 dark:text-gray-300 uppercase tracking-wider font-bold">
+                <tr className="bg-gray-50 dark:bg-black border-b border-gray-200 dark:border-gray-800 text-xs text-gray-600 dark:text-gray-400 uppercase tracking-wider font-bold">
                   <th className="p-4">Officer Name</th>
                   <th className="p-4">Administrative Role</th>
                   <th className="p-4">Authorized Since</th>
@@ -216,21 +216,21 @@ export default function UserManagement() {
                   <th className="p-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700 text-sm text-gray-850 dark:text-gray-350">
+              <tbody className="divide-y divide-gray-200 dark:divide-gray-800 text-sm text-black dark:text-gray-300">
                 {users.map((u) => {
                   const isSelf = currentUser && currentUser.username === u.username;
                   const isPending = actionLoading === u._id;
 
                   return (
-                    <tr key={u._id} className="hover:bg-gray-50 dark:hover:bg-gray-850 transition-colors">
+                    <tr key={u._id} className="hover:bg-gray-50 dark:hover:bg-[#111]/30 transition-colors">
                       {/* Name */}
-                      <td className="p-4 font-semibold text-gray-900 dark:text-white font-mono flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 shadow-sm">
+                      <td className="p-4 font-semibold text-black dark:text-white font-mono flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 flex items-center justify-center text-black dark:text-white">
                           <User className="w-4 h-4" />
                         </div>
                         <span>{u.username}</span>
                         {isSelf && (
-                          <span className="px-2 py-0.5 rounded-full bg-blue-105 border border-blue-200/60 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-[9px] uppercase tracking-wider font-bold">
+                          <span className="px-2 py-0.5 rounded-full text-[9px] font-medium border border-gray-200 text-gray-700 bg-gray-50 dark:border-gray-800 dark:text-gray-300 dark:bg-black">
                             Current User
                           </span>
                         )}
@@ -238,27 +238,23 @@ export default function UserManagement() {
 
                       {/* Role */}
                       <td className="p-4">
-                        <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border transition-colors ${
-                          u.role === 'Admin' 
-                            ? 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:border-blue-800' 
-                            : 'bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-950 dark:border-gray-800 dark:text-gray-300'
-                        }`}>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-medium border border-gray-200 text-gray-700 bg-gray-50 dark:border-gray-800 dark:text-gray-300 dark:bg-black">
                           <Shield className="w-3 h-3 shrink-0" />
                           {u.role}
                         </span>
                       </td>
 
                       {/* Registration Date */}
-                      <td className="p-4 text-gray-700 dark:text-gray-300 font-mono">
+                      <td className="p-4 text-gray-600 dark:text-gray-400 font-mono">
                         {new Date(u.createdAt).toLocaleDateString('en-IN')}
                       </td>
 
                       {/* Status */}
                       <td className="p-4">
-                        <span className={`inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                        <span className={`inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-medium border ${
                           u.accountStatus === 'Active' 
-                            ? 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400' 
-                            : 'bg-red-100 text-red-750 dark:bg-red-900/50 dark:text-red-400'
+                            ? 'border-green-200 text-green-700 bg-green-50 dark:border-green-900/50 dark:text-green-400 dark:bg-green-950/20' 
+                            : 'border-red-200 text-red-700 bg-red-50 dark:border-red-900/50 dark:text-red-400 dark:bg-red-950/20'
                         }`}>
                           {u.accountStatus}
                         </span>
@@ -269,10 +265,10 @@ export default function UserManagement() {
                         <button
                           onClick={() => handleToggleStatus(u._id, u.username, u.accountStatus)}
                           disabled={isSelf || isPending}
-                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 font-bold text-xs uppercase tracking-wider rounded-xl shadow-sm border transition-colors disabled:opacity-30 disabled:pointer-events-none ${
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 font-bold text-xs uppercase tracking-wider rounded-lg border transition-colors disabled:opacity-30 disabled:pointer-events-none ${
                             u.accountStatus === 'Active'
-                              ? 'bg-red-50 hover:bg-red-100 dark:bg-red-950/20 dark:hover:bg-red-900/40 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400'
-                              : 'bg-green-50 hover:bg-green-100 dark:bg-green-950/20 dark:hover:bg-green-900/40 border-green-200 dark:border-green-800 text-green-700 dark:text-green-450'
+                              ? 'bg-transparent hover:bg-red-50 dark:hover:bg-red-950/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-405'
+                              : 'bg-transparent hover:bg-green-50 dark:hover:bg-green-950/20 border-green-200 dark:border-green-800 text-green-700 dark:text-green-400'
                           }`}
                         >
                           {isPending ? (
@@ -299,27 +295,27 @@ export default function UserManagement() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Overlay background blur */}
-          <div className="absolute inset-0 bg-gray-950/60 dark:bg-gray-950/80 backdrop-filter backdrop-blur-sm" onClick={() => setIsModalOpen(false)}></div>
+          <div className="absolute inset-0 bg-black/60 dark:bg-black/80 backdrop-filter backdrop-blur-sm" onClick={() => setIsModalOpen(false)}></div>
           
           {/* Modal Container */}
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 w-full max-w-md rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl z-10 space-y-5 animate-in fade-in zoom-in-95 duration-200">
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 dark:from-blue-600 dark:via-blue-450 dark:to-blue-600"></div>
+          <div className="bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 w-full max-w-md rounded-lg p-6 sm:p-8 relative overflow-hidden shadow-2xl z-10 space-y-5 animate-in fade-in zoom-in-95 duration-200">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-black dark:bg-white"></div>
 
             <div className="flex justify-between items-center pb-2 border-b border-gray-200 dark:border-gray-800">
-              <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-1.5">
-                <UserPlus className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-base font-bold text-black dark:text-white flex items-center gap-1.5 font-serif">
+                <UserPlus className="w-4.5 h-4.5 text-black dark:text-white" />
                 Register Officer Account
               </h3>
               <button 
                 onClick={() => setIsModalOpen(false)}
-                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+                className="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {modalError && (
-              <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-3.5 rounded-lg text-sm flex items-start gap-2 shadow-sm">
+              <div className="bg-white dark:bg-[#0a0a0a] border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-3.5 rounded-lg text-sm flex items-start gap-2">
                 <AlertTriangle className="w-4.5 h-4.5 shrink-0 mt-0.5" />
                 <span>{modalError}</span>
               </div>
@@ -329,53 +325,53 @@ export default function UserManagement() {
               
               {/* Username */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Username</label>
+                <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Username</label>
                 <input 
                   type="text" 
                   required
                   value={newUsername}
                   onChange={(e) => setNewUsername(e.target.value)}
                   placeholder="e.g., patna_officer_45"
-                  className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all font-mono"
+                  className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-450 dark:placeholder-gray-600 focus:outline-none transition-all font-mono"
                 />
               </div>
 
               {/* Password */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-305 uppercase tracking-wider mb-2">Password</label>
+                <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Password</label>
                 <input 
                   type="password" 
                   required
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all"
+                  className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-450 dark:placeholder-gray-600 focus:outline-none transition-all"
                 />
               </div>
 
               {/* Phone Number */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-305 uppercase tracking-wider mb-2">Mobile Number (2FA OTP Destination)</label>
+                <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Mobile Number (2FA OTP Destination)</label>
                 <input 
                   type="text" 
                   required
                   value={newPhoneNumber}
                   onChange={(e) => setNewPhoneNumber(e.target.value)}
                   placeholder="e.g., +919999999999"
-                  className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all font-mono"
+                  className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-450 dark:placeholder-gray-600 focus:outline-none transition-all font-mono"
                 />
               </div>
 
               {/* Role */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-305 uppercase tracking-wider mb-2">Administrative Role</label>
+                <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Administrative Role</label>
                 <select
                   value={newRole}
                   onChange={(e) => setNewRole(e.target.value)}
-                  className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 rounded-xl p-3 text-sm text-gray-800 dark:text-gray-200 focus:outline-none transition-all"
+                  className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-gray-800 dark:text-gray-200 focus:outline-none transition-all"
                 >
-                  <option value="User">User (Standard Officer Access)</option>
-                  <option value="Admin">Admin (System Registry Administrator)</option>
+                  <option value="User" className="bg-white dark:bg-[#0a0a0a]">User (Standard Officer Access)</option>
+                  <option value="Admin" className="bg-white dark:bg-[#0a0a0a]">Admin (System Registry Administrator)</option>
                 </select>
               </div>
 
@@ -384,16 +380,16 @@ export default function UserManagement() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4.5 py-2.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-semibold rounded-xl transition-colors"
+                  className="px-4 py-2.5 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm font-semibold rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={modalLoading}
-                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 dark:text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center gap-1.5"
+                  className="px-5 py-2.5 bg-black text-white hover:bg-gray-850 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold text-sm rounded-lg active:scale-[0.99] transition-all flex items-center gap-1.5"
                 >
-                  {modalLoading && <Loader2 className="w-4 h-4 animate-spin text-white dark:text-gray-950" />}
+                  {modalLoading && <Loader2 className="w-4 h-4 animate-spin text-white dark:text-black" />}
                   <span>Register Account</span>
                 </button>
               </div>

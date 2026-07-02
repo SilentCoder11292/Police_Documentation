@@ -163,103 +163,103 @@ export default function SearchRecord() {
       
       {/* Module Title */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight font-serif">Search Portal Archival Node</h1>
-        <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">Filter state registry records by case number, FIR identifiers, or filing jurisdictions.</p>
+        <h1 className="text-2xl font-bold text-black dark:text-white tracking-tight font-serif">Search Portal Archival Node</h1>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Filter state registry records by case number, FIR identifiers, or filing jurisdictions.</p>
       </div>
 
       {/* Advanced Filters Panel */}
-      <form onSubmit={handleSearchSubmit} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 space-y-5 shadow-sm transition-colors">
+      <form onSubmit={handleSearchSubmit} className="bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-lg p-6 space-y-5 transition-colors">
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {/* FIR Number */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2 font-mono">FIR Identifier</label>
+            <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2 font-mono">FIR Identifier</label>
             <input 
               type="text" 
               value={firNumber}
               onChange={(e) => setFirNumber(e.target.value)}
               placeholder="e.g., FIR/0023/2026" 
-              className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all font-mono"
+              className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-450 dark:placeholder-gray-600 focus:outline-none transition-all font-mono"
             />
           </div>
 
           {/* Case Number */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2 font-mono">Case Reference</label>
+            <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2 font-mono">Case Reference</label>
             <input 
               type="text" 
               value={caseNumber}
               onChange={(e) => setCaseNumber(e.target.value)}
               placeholder="e.g., CR-891/2026" 
-              className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all font-mono"
+              className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-450 dark:placeholder-gray-600 focus:outline-none transition-all font-mono"
             />
           </div>
 
           {/* Police Station */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Police Station (Thana)</label>
+            <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Police Station (Thana)</label>
             <input 
               type="text" 
               value={policeStation}
               onChange={(e) => setPoliceStation(e.target.value)}
               placeholder="e.g., Patna Town PS" 
-              className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all"
+              className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-450 dark:placeholder-gray-600 focus:outline-none transition-all"
             />
           </div>
 
           {/* District */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">District</label>
+            <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">District</label>
             <input 
               type="text" 
               value={district}
               onChange={(e) => setDistrict(e.target.value)}
               placeholder="e.g., Patna" 
-              className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all"
+              className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-455 dark:placeholder-gray-600 focus:outline-none transition-all"
             />
           </div>
 
           {/* Filing Year */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2 font-mono">Filing Year</label>
+            <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2 font-mono">Filing Year</label>
             <input 
               type="number" 
               value={year}
               onChange={(e) => setYear(e.target.value)}
               placeholder="e.g., 2026" 
-              className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl p-3 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none transition-all font-mono"
+              className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-black dark:text-white placeholder-gray-450 dark:placeholder-gray-600 focus:outline-none transition-all font-mono"
             />
           </div>
 
           {/* Record Type Classification */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Record Classification</label>
+            <label className="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Record Classification</label>
             <select 
               value={recordType}
               onChange={(e) => setRecordType(e.target.value)}
-              className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-700 focus:border-police-500 dark:focus:border-police-400 focus:ring-1 focus:ring-police-500 dark:focus:ring-police-400 rounded-xl p-3 text-sm text-gray-800 dark:text-gray-200 focus:outline-none transition-all"
+              className="w-full bg-transparent border border-gray-200 dark:border-gray-800 focus:border-black dark:focus:border-white rounded-lg p-3 text-sm text-gray-800 dark:text-gray-200 focus:outline-none transition-all"
             >
-              <option value="All">All Categories</option>
-              <option value="FIR">First Information Report (FIR)</option>
-              <option value="Case Diary">Case Diary (CD)</option>
-              <option value="Administrative Order">Administrative Order</option>
+              <option value="All" className="bg-white dark:bg-[#0a0a0a]">All Categories</option>
+              <option value="FIR" className="bg-white dark:bg-[#0a0a0a]">First Information Report (FIR)</option>
+              <option value="Case Diary" className="bg-white dark:bg-[#0a0a0a]">Case Diary (CD)</option>
+              <option value="Administrative Order" className="bg-white dark:bg-[#0a0a0a]">Administrative Order</option>
             </select>
           </div>
         </div>
 
         {/* Action Controls */}
-        <div className="flex justify-end gap-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+        <div className="flex justify-end gap-3 pt-3 border-t border-gray-200 dark:border-gray-800">
           <button
             type="button"
             onClick={handleClearFilters}
-            className="px-5 py-3 border border-gray-250 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-xl text-sm font-bold shadow-sm transition-all active:scale-[0.98]"
+            className="px-4 py-2 border border-gray-200 dark:border-gray-800 text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white rounded-lg text-sm font-semibold hover:bg-gray-50 dark:hover:bg-[#111] transition-all active:scale-[0.99]"
           >
             Clear Filters
           </button>
           
           <button
             type="submit"
-            className="px-6 py-3 bg-gradient-to-r from-police-700 to-police-600 dark:from-police-500 dark:to-police-400 hover:from-police-600 hover:to-police-500 dark:hover:from-police-400 dark:hover:to-police-300 text-white dark:text-gray-950 font-bold text-sm rounded-xl shadow-md active:scale-[0.98] transition-all flex items-center gap-1.5"
+            className="px-5 py-2 bg-black text-white hover:bg-gray-850 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold text-sm rounded-lg active:scale-[0.99] transition-all flex items-center gap-1.5"
           >
             <Search className="w-4 h-4" />
             <span>Filter Archive</span>
@@ -270,7 +270,7 @@ export default function SearchRecord() {
 
       {/* Global Errors Alert */}
       {error && (
-        <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-4 rounded-xl text-sm flex items-start gap-3 shadow-sm">
+        <div className="bg-white dark:bg-[#0a0a0a] border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 p-4 rounded-lg text-sm flex items-start gap-3">
           <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
           <div>
             <strong className="block font-semibold">Filing System Message:</strong>
@@ -280,35 +280,35 @@ export default function SearchRecord() {
       )}
 
       {/* Search Output Table */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden shadow-sm transition-colors">
+      <div className="bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden transition-colors">
         
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex items-center gap-2">
-          <FileCheck2 className="w-4 h-4 text-police-600 dark:text-police-400" />
-          <h3 className="text-xs uppercase tracking-wider font-extrabold text-gray-900 dark:text-white">Query Results Registry</h3>
-          <span className="ml-auto text-xs text-gray-700 dark:text-gray-300 font-mono">Found: {documents.length} Records</span>
+        <div className="p-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111] flex items-center gap-2">
+          <FileCheck2 className="w-4 h-4 text-black dark:text-white" />
+          <h3 className="text-xs uppercase tracking-wider font-extrabold text-black dark:text-white">Query Results Registry</h3>
+          <span className="ml-auto text-xs text-gray-655 dark:text-gray-400 font-mono">Found: {documents.length} Records</span>
         </div>
 
         {loading ? (
           /* Loading overlay skeleton */
           <div className="p-12 text-center space-y-3">
-            <Loader2 className="w-8 h-8 animate-spin text-police-600 dark:text-police-400 mx-auto" />
-            <p className="text-sm text-gray-700 dark:text-gray-300 font-mono">Querying Central State Database...</p>
+            <Loader2 className="w-8 h-8 animate-spin text-black dark:text-white mx-auto" />
+            <p className="text-sm text-gray-600 dark:text-gray-400 font-mono">Querying Central State Database...</p>
           </div>
         ) : !searchInitiated ? (
-          <div className="p-12 text-center text-gray-700 dark:text-gray-300 text-sm leading-relaxed max-w-sm mx-auto space-y-2">
-            <Search className="w-8 h-8 mx-auto text-gray-700 dark:text-gray-300" />
+          <div className="p-12 text-center text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-sm mx-auto space-y-2">
+            <Search className="w-8 h-8 mx-auto text-gray-600 dark:text-gray-400" />
             <p>Ready to search. Use the input parameters above to filter the digital record room archives.</p>
           </div>
         ) : documents.length === 0 ? (
-          <div className="p-12 text-center text-gray-700 dark:text-gray-300 text-sm leading-relaxed max-w-sm mx-auto space-y-2">
-            <AlertTriangle className="w-8 h-8 mx-auto text-gray-700 dark:text-gray-300" />
+          <div className="p-12 text-center text-gray-605 dark:text-gray-400 text-sm leading-relaxed max-w-sm mx-auto space-y-2">
+            <AlertTriangle className="w-8 h-8 mx-auto text-gray-600 dark:text-gray-400" />
             <p>No matching case files found inside Patna Headquarter Node registry.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left">
               <thead>
-                <tr className="bg-gray-100 dark:bg-gray-950 border-b border-gray-200 dark:border-gray-700 text-xs text-gray-700 dark:text-gray-300 uppercase tracking-wider font-bold">
+                <tr className="bg-gray-50 dark:bg-black border-b border-gray-200 dark:border-gray-800 text-xs text-gray-600 dark:text-gray-400 uppercase tracking-wider font-bold">
                   <th className="p-4">Classification</th>
                   <th className="p-4">Case Identifiers</th>
                   <th className="p-4">Filing Jurisdiction</th>
@@ -317,17 +317,17 @@ export default function SearchRecord() {
                   <th className="p-4 text-right">Filing Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700 text-sm text-gray-850 dark:text-gray-350">
+              <tbody className="divide-y divide-gray-205 dark:divide-gray-800 text-sm text-black dark:text-gray-300">
                 {documents.map((doc) => {
                   const docId = doc._id;
                   const reqStatus = requestsMap[docId];
                   const isProcessing = actionLoading === docId;
 
                   return (
-                    <tr key={docId} className="hover:bg-gray-50 dark:hover:bg-gray-850 transition-colors">
+                    <tr key={docId} className="hover:bg-gray-50 dark:hover:bg-[#111]/30 transition-colors">
                       {/* Classification Badge */}
                       <td className="p-4">
-                        <span className="px-2.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-950 border border-gray-205 dark:border-gray-800 text-gray-700 dark:text-gray-300 font-bold uppercase tracking-wider text-[10px]">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium border border-gray-200 text-gray-700 bg-gray-50 dark:border-gray-800 dark:text-gray-300 dark:bg-black">
                           {doc.recordType}
                         </span>
                       </td>
@@ -335,16 +335,16 @@ export default function SearchRecord() {
                       {/* File Ref */}
                       <td className="p-4">
                         <div>
-                          <p className="font-bold text-gray-900 dark:text-white font-mono">{doc.caseNumber}</p>
-                          <p className="text-xs text-gray-700 dark:text-gray-300 font-mono mt-0.5">{doc.firNumber}</p>
+                          <p className="font-bold text-black dark:text-white font-mono">{doc.caseNumber}</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400 font-mono mt-0.5">{doc.firNumber}</p>
                         </div>
                       </td>
 
                       {/* Jurisdiction */}
                       <td className="p-4">
                         <div>
-                          <p className="text-gray-900 dark:text-white font-semibold">{doc.policeStation}</p>
-                          <p className="text-xs text-gray-700 dark:text-gray-300 flex items-center gap-0.5 mt-0.5">
+                          <p className="text-black dark:text-white font-semibold">{doc.policeStation}</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-450 flex items-center gap-0.5 mt-0.5">
                             <MapPin className="w-3 h-3 text-gray-500" />
                             {doc.district}
                           </p>
@@ -352,7 +352,7 @@ export default function SearchRecord() {
                       </td>
 
                       {/* Year */}
-                      <td className="p-4 text-center font-mono text-gray-900 dark:text-white font-bold">
+                      <td className="p-4 text-center font-mono text-black dark:text-white font-bold">
                         {doc.year}
                       </td>
 
@@ -360,7 +360,7 @@ export default function SearchRecord() {
                       <td className="p-4 max-w-[200px]">
                         <div className="flex flex-wrap gap-1">
                           {doc.keywords.map((kw, i) => (
-                            <span key={i} className="px-2 py-0.5 rounded-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 text-[10px] font-mono font-medium">
+                            <span key={i} className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium border border-gray-200 text-gray-700 bg-gray-50 dark:border-gray-800 dark:text-gray-300 dark:bg-black font-mono">
                               {kw}
                             </span>
                           ))}
@@ -374,7 +374,7 @@ export default function SearchRecord() {
                           <button
                             onClick={() => handleDownload(docId, doc.caseNumber)}
                             disabled={isProcessing}
-                            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-700 hover:bg-emerald-600 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-[0.98]"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold text-xs uppercase tracking-wider rounded-lg disabled:opacity-50 transition-all active:scale-[0.99]"
                           >
                             {isProcessing ? (
                               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -391,7 +391,7 @@ export default function SearchRecord() {
                                 <button
                                   onClick={() => handleDownload(docId, doc.caseNumber)}
                                   disabled={isProcessing}
-                                  className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-700 hover:bg-emerald-600 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-[0.98]"
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold text-xs uppercase tracking-wider rounded-lg disabled:opacity-50 transition-all active:scale-[0.99]"
                                 >
                                   {isProcessing ? (
                                     <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -405,8 +405,8 @@ export default function SearchRecord() {
 
                             if (reqStatus === 'Pending') {
                               return (
-                                <span className="inline-flex items-center gap-1.5 px-3 py-2 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-900 text-amber-800 dark:text-amber-400 text-xs uppercase tracking-wider font-bold rounded-xl select-none">
-                                  <Clock className="w-3.5 h-3.5 text-amber-700 dark:text-amber-400 animate-pulse" />
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-amber-200 text-amber-800 bg-amber-50 dark:border-amber-900/50 dark:text-amber-400 dark:bg-amber-955/20 text-xs uppercase tracking-wider font-semibold rounded-lg select-none">
+                                  <Clock className="w-3.5 h-3.5 animate-pulse" />
                                   Pending Approval
                                 </span>
                               );
@@ -414,7 +414,7 @@ export default function SearchRecord() {
 
                             if (reqStatus === 'Rejected') {
                               return (
-                                <span className="inline-flex items-center gap-1.5 px-3 py-2 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-900 text-red-800 dark:text-red-400 text-xs uppercase tracking-wider font-bold rounded-xl select-none">
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-red-200 text-red-700 bg-red-50 dark:border-red-900/50 dark:text-red-400 dark:bg-red-955/20 text-xs uppercase tracking-wider font-semibold rounded-lg select-none">
                                   <Ban className="w-3.5 h-3.5" />
                                   Access Rejected
                                 </span>
@@ -426,7 +426,7 @@ export default function SearchRecord() {
                               <button
                                 onClick={() => handleRequestAccess(docId, doc.caseNumber)}
                                 disabled={isProcessing}
-                                className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-police-700 to-police-600 dark:from-police-500 dark:to-police-400 hover:from-police-600 hover:to-police-500 dark:hover:from-police-450 dark:hover:to-police-350 disabled:opacity-50 text-white dark:text-slate-955 font-bold text-xs uppercase tracking-wider rounded-xl shadow-md active:scale-[0.98] transition-all"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black text-white hover:bg-gray-850 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold text-xs uppercase tracking-wider rounded-lg disabled:opacity-50 active:scale-[0.99] transition-all"
                               >
                                 {isProcessing ? (
                                   <Loader2 className="w-3.5 h-3.5 animate-spin" />
