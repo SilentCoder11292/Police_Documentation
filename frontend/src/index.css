@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans;
+  }
+}
+
+/* Custom transitions and glassmorphism elements */
+.glass-panel {
+  background: rgba(15, 30, 54, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-subtle {
+  box-shadow: 0 0 25px -5px rgba(212, 163, 45, 0.15);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFF9E6 0%, #D4A32D 50%, #B0821A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

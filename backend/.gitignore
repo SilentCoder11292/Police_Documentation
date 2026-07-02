@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+
+# Local configuration files
+.env
+.env.local
+.env.development
+.env.production
+
+# Local file upload storage (Phase 2 uploaded PDFs)
+uploads/*
+!uploads/.gitkeep
+
+# Logs and diagnostics
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS metadata files
+.DS_Store
+Thumbs.db
