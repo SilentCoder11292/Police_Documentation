@@ -1,7 +1,4 @@
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
-/* Hallmark · component: Login · genre: modern-minimal · theme: custom
- * contrast: pass (40-41) · slop: pass (42-45)
- */
+
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
