@@ -1,9 +1,10 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 require('dotenv').config();
+
+const connectDB = require('./config/db');
 
 const authRoutes = require('./routes/authRoutes');
 const documentRoutes = require('./routes/documentRoutes');
@@ -11,6 +12,8 @@ const requestRoutes = require('./routes/requestRoutes');
 const userRoutes = require('./routes/userRoutes');
 const auditRoutes = require('./routes/auditRoutes');
 const statsRoutes = require('./routes/statsRoutes');
+const aiRoutes = require('./routes/aiRoutes');
+
 
 const app = express();
 
@@ -34,14 +37,7 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // 3. Connect to MongoDB Database
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/police_drrp';
-mongoose.connect(MONGO_URI)
-  .then(() => {
-    console.log('Connected to MongoDB. Database Name:', mongoose.connection.name);
-  })
-  .catch((err) => {
-    console.error('Database connection failed. Ensure MongoDB is running.', err.message);
-  });
+connectDB();
 
 // 4. API Routes
 app.use('/api/auth', authRoutes);
@@ -50,6 +46,7 @@ app.use('/api/requests', requestRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/audit-logs', auditRoutes);
 app.use('/api/system', statsRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

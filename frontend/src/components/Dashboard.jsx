@@ -10,6 +10,8 @@ import SearchRecord from './SearchRecord';
 import RetrievalRequest from './RetrievalRequest';
 import ReportsAnalytics from './ReportsAnalytics';
 import UserManagement from './UserManagement';
+import AISummarizer from './AISummarizer';
+
 
 import { 
   LayoutDashboard, 
@@ -25,7 +27,8 @@ import {
   Database,
   FileCheck2,
   ShieldCheck,
-  Clock
+  Clock,
+  Sparkles
 } from 'lucide-react';
 
 export default function Dashboard() {
@@ -70,6 +73,7 @@ export default function Dashboard() {
     { id: 'overview', label: 'Overview', icon: LayoutDashboard, adminOnly: false },
     { id: 'search', label: 'Search Record', icon: Search, adminOnly: false },
     { id: 'retrieval', label: 'Retrieval Request', icon: FolderLock, adminOnly: false },
+    { id: 'summarize', label: 'AI Summarizer', icon: Sparkles, adminOnly: false },
     { id: 'upload', label: 'Digitize File', icon: FolderUp, adminOnly: true },
     { id: 'reports', label: 'Audits & Metrics', icon: BarChart3, adminOnly: true },
     { id: 'users', label: 'Officer Profiles', icon: Users, adminOnly: true }
@@ -369,6 +373,11 @@ export default function Dashboard() {
           {/* ================= SECTION: RETRIEVAL REQUEST ================= */}
           {activeTab === 'retrieval' && (
             <RetrievalRequest />
+          )}
+
+          {/* ================= SECTION: AI SUMMARIZER ================= */}
+          {activeTab === 'summarize' && (
+            <AISummarizer />
           )}
 
           {/* ================= SECTION: REPORTS & ANALYTICS ================= */}

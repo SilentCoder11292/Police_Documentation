@@ -1,17 +1,8 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
-const twilio = require('twilio');
+const twilioService = require('../services/twilioService');
 const AuditLog = require('../models/auditLogModel');
 
-// Initialize Twilio client using environment parameters
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const verifyServiceSid = process.env.TWILIO_VERIFY_SERVICE_SID;
-
-let client;
-if (accountSid && authToken) {
-  client = twilio(accountSid, authToken);
-}
 
 /**
  * @desc    Initial login validation: checks credentials, dispatches verification SMS via Twilio Verify API
@@ -44,8 +35,8 @@ const login = async (req, res) => {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    // 5. Dispatch SMS OTP verification via Twilio Verify API
-    if (!client || !verifyServiceSid) {
+    // 5. Dispatch SMS OTP verification via Twilio Verify Service
+    if (!twilioService.isConfigured) {
       console.warn('[OTP WARNING] Twilio Verify credentials are not configured. Returning 500 configuration error.');
       return res.status(500).json({ 
         message: 'SMS Verify Failure: Twilio Verify credentials are not configured in the server environment.' 
@@ -53,9 +44,7 @@ const login = async (req, res) => {
     }
 
     try {
-      await client.verify.v2.services(verifyServiceSid)
-        .verifications
-        .create({ to: user.phoneNumber, channel: 'sms' });
+      await twilioService.sendOTP(user.phoneNumber);
     } catch (smsError) {
       console.error('Twilio Verify Dispatch Error:', smsError);
       return res.status(500).json({ 
@@ -101,18 +90,16 @@ const verifyOtp = async (req, res) => {
     }
 
     // 3. Trigger Twilio verification check
-    if (!client || !verifyServiceSid) {
+    if (!twilioService.isConfigured) {
       return res.status(500).json({ 
         message: 'SMS Verify Failure: Twilio Verify credentials are not configured in the server environment.' 
       });
     }
 
     try {
-      const verificationCheck = await client.verify.v2.services(verifyServiceSid)
-        .verificationChecks
-        .create({ to: user.phoneNumber, code: otp });
+      const isApproved = await twilioService.verifyOTP(user.phoneNumber, otp);
 
-      if (verificationCheck.status !== 'approved') {
+      if (!isApproved) {
         return res.status(400).json({ message: 'Invalid or expired 2FA verification code.' });
       }
     } catch (verifyError) {

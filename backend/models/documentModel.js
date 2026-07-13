@@ -61,11 +61,19 @@ const documentSchema = new mongoose.Schema(
     isEncrypted: {
       type: Boolean,
       default: true
+    },
+    summary: {
+      type: String,
+      default: ''
+    },
+    summaryGeneratedAt: {
+      type: Date
     }
   },
   {
     timestamps: true
   }
+
 );
 
 module.exports = mongoose.model('Document', documentSchema);
